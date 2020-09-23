@@ -51,3 +51,6 @@ export PATH=/usr/local/bin:/usr/local/sbin:$HOME/.cargo/bin:$PATH
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 alias openstack='docker run -it --rm -v ~/.ssh:$HOME/.ssh:ro -e OS_AUTH_URL -e OS_IDENTITY_API_VERSION -e OS_USER_DOMAIN_NAME -e OS_PROJECT_DOMAIN_NAME -e OS_TENANT_ID -e OS_TENANT_NAME -e OS_PROJECT_DOMAIN_NAME -e OS_USERNAME -e OS_PASSWORD -e OS_REGION_NAME ullbergm/openstack-client:latest openstack'
+
+alias fig=docker-compose
+
