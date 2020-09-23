@@ -24,6 +24,8 @@ if ! zgen saved; then
   zgen load romkatv/powerlevel10k powerlevel10k
 
   zgen save
+
+  git config --global push.default current
 fi
 
 zle -N autosuggest_start
