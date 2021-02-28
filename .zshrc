@@ -47,9 +47,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+source $(brew --prefix nvm)/nvm.sh
+
 export GOPATH=$HOME/gocode
 
-export PATH=/usr/local/bin:/usr/local/sbin:$HOME/.cargo/bin:$GOPATH/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:$HOME/.cargo/bin:$GOPATH/bin:/usr/local/opt:$PATH
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -61,3 +63,14 @@ alias fig=docker-compose
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+
+git config --global pager.branch false
+
+# for stack.yml
+export OPENFAAS_IP=$(multipass info faasd --format json| jq '.info.faasd.ipv4[0]' | tr -d '\"')
+
+# for logging into OpenFaaS
+export OPENFAAS_URL=http://$OPENFAAS_IP:8080
+
+export GITHUB_USERNAME=ccfontes
+
